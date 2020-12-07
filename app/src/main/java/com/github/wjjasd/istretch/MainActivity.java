@@ -29,7 +29,7 @@ import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton addBtn;
+    private ImageButton addBtn, startBtn;
     private Realm mRealm;
     private TimePickerDialog timePickerDialog;
     private Context mContext;
@@ -86,6 +86,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        startBtn = findViewById(R.id.startBtn);
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,StretchActivity.class);;
+                startActivity(intent);
             }
         });
     }

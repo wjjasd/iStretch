@@ -2,8 +2,8 @@
     <string name="app_name">iStretch</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <item name="TAG_ALARM_POSITION" type="id"/>
+    <item name="TAG_ALARM_POSITION" type="id" />
 
-    <item name="TAG_ALARM_ID" type="id"/>
+    <item name="TAG_ALARM_ID" type="id" />
 
 </resources>
