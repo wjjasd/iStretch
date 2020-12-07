@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp">
+
+        <RelativeLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/ampm_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:text="am"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/time_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_toEndOf="@id/ampm_row"
+                android:text="07 : 20"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/day_of_week_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/time_row"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="6dp"
+                android:text="월,화,수,목,금,토,일"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:id="@+id/deleteBtn_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@id/switch_row"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_delete_black_24dp" />
+
+            <Switch
+                android:id="@+id/switch_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="1dp" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
