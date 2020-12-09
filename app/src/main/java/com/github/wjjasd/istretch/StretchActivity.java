@@ -18,8 +18,8 @@ import com.bumptech.glide.Glide;
 
 public class StretchActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView gifImg;
-    private ProgressBar progressBar, timeCounter;
+    private ImageView gifImg; //스트레칭 자세 이미지
+    private ProgressBar progressBar, timeCounter; //각 스트레칭 순번, 초 단위 카운터
     private TextView progressTxt, title, explanation;
     private static int progress; // 스트레칭 순번
     private  CountDownDialog countDownDialog;
@@ -62,29 +62,29 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
             ,"런지 자세로 종아리 늘이기 (우)"}; //w 23
 
     private final String EXPLANATION[] = {
-             "왼손으로 머리를 잡고 천천히 당겨 목 오른쪽 근육을 스트레칭 해줍니다" //a 1
-            ,"오른손으로 머리를 잡고 천천히 당겨 목 왼쪽 근육을 스트레칭 해줍니다" //b 2
-            ,"어깨를 고정하고 머리를 위로 들어 줍니다" //c 3
-            ,"어깨를 고정하고 머리를 앞으로 숙여 줍니다" //d 4
-            ,"왼손을 앞으로 쭉 뻗은 상태에서 오른손으로 왼손끝을 몸쪽으로 당겨줍니다" //e 5
+             "왼손으로 머리를 잡고 천천히 당겨 \n 목 오른쪽 근육을 스트레칭 해줍니다" //a 1
+            ,"오른손으로 머리를 잡고 천천히 당겨 \n 목 왼쪽 근육을 스트레칭 해줍니다" //b 2
+            ,"어깨를 고정하고 머리를 \n 위로 들어 줍니다" //c 3
+            ,"어깨를 고정하고 머리를 \n 앞으로 숙여 줍니다" //d 4
+            ,"왼손을 앞으로 쭉 뻗은 상태에서 \n 오른손으로 왼손끝을 몸쪽으로 당겨줍니다" //e 5
             ,"오른손은 앞으로 쭉 뻗은 상태에서 \n 왼손으로 오른손 끝을 몸쪽으로 당겨줍니다" //f 6
-            ,"왼쪽 팔을 오른쪽으로 당기고 왼쪽 어깨를 스트레칭 해주며 자세를 유지합니다" //g 7
-            ,"오른쪽 팔을 왼쪽으로 당기고 오른쪽 어깨를 스트레칭 해주며 자세를 유지합니다 " //h 8
-            ,"왼쪽 팔을 머리뒤쪽에서 반대편으로 넘기며 다른 한 손으로 천천히 당겨줍니다" //i 9
-            ,"오른쪽 팔을 머리뒤쪽에서 반대편으로 넘기며 다른 한 손으로 천천히 당겨줍니다" //j 10
-            ,"두 팔을 뒤로 모아 마주잡고 어깨를 펴며 쭉 뻗어 줍니다" //k 11
+            ,"왼쪽 팔을 오른쪽으로 당기고 왼쪽 어깨를 \n 스트레칭 해주며 자세를 유지합니다" //g 7
+            ,"오른쪽 팔을 왼쪽으로 당기고 오른쪽 어깨를 \n 스트레칭 해주며 자세를 유지합니다 " //h 8
+            ,"왼쪽 팔을 머리뒤쪽에서 반대편으로 넘기며 \n 다른 한 손으로 천천히 당겨줍니다" //i 9
+            ,"오른쪽 팔을 머리뒤쪽에서 반대편으로 넘기며 \n 다른 한 손으로 천천히 당겨줍니다" //j 10
+            ,"두 팔을 뒤로 모아 마주잡고 \n 어깨를 펴며 쭉 뻗어 줍니다" //k 11
             ,"양발을 나란히 놓고 선후 두손을 모아줍니다 \n 허리를 구부리며 등과 팔을 쭉 펴세요" //l 12
-            ,"팔올려 옆으로 몸통 굽히기 (좌)" //m 13
-            ,"팔올려 옆으로 몸통 굽히기 (우)" //n 14
-            ,"한쪽 다리 접고 몸 숙이기 (좌)" //o 15
-            ,"한쪽 다리 접고 몸 숙이기 (우)" //p 16
-            ,"한쪽 다리 접고 상체 회전 (좌)" //q 17
-            ,"한쪽 다리 접고 상체 회전 (우)" //r 18
-            ,"한쪽 다리 뒤로 굽혀 당기기 (좌)" //s 19
-            ,"한쪽 다리 뒤로 굽혀 당기기 (우)" //t 20
-            ,"서서 상체 접기" //u 21
-            ,"런지 자세로 종아리 늘이기 (좌)" //v 22
-            ,"런지 자세로 종아리 늘이기 (우)"}; //w 23
+            ,"두손을 깍지껴 위로 들어 올리고 \n 왼쪽으로 기울여 줍니다" //m 13
+            ,"두손을 깍지껴 위로 들어 올리고 \n 오른쪽으로 기울여 줍니다" //n 14
+            ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 몸을 앞으로 지그시 눌러줍니다" //o 15
+            ,"의자에 앉아 오른쪽 다리을 반대편 \n 무릎에 올린 후 몸을 앞으로 지그시 눌러줍니다" //p 16
+            ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 상체를 왼쪽으로 틀어줍니다" //q 17
+            ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 상체를 오른쪽으로 틀어줍니다" //r 18
+            ,"바로선 자세에서 왼쪽다리를 들어올려 \n 왼쪽손으로 잡고 자세를 유지합니다" //s 19
+            ,"바로선 자세에서 오른쪽다리 들어올려 \n 오른손으로 잡고 자세를 유지합니다" //t 20
+            ,"양발을 어깨 넓이로 벌려 선 상태에서 \n 몸을 앞으로 서서히 숙여 등과 허벅지 \n 근육을 늘려줍니다" //u 21
+            ,"오른쪽 발을 앞으로 내딛고 뒤쪽 종아리를 늘려줍니다" //v 22
+            ,"왼쪽 발을 앞으로 내딛고 뒤쪽 종아리를 늘려줍니다"}; //w 23
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,9 +113,11 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
             public void onFinish() {
                 progress++;
                 if(progress < NAMES.length){
+                    cdt.cancel();
                     startStretch(GOALS[progress]*1000,true);
                 }else{
-                    MyUtil.print("스트레칭 종료", getApplicationContext());
+                   MyUtil.print("스트레칭 완료!",getApplicationContext());
+                   finish();
                 }
             }
 
@@ -187,15 +189,34 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                 cdt.start();
             }
         }else if(v==preBtn){
-            cdt.cancel();
-            progress--;
-            startStretch(GOALS[progress]*1000, true);
+            if(flag){
+                cdt.cancel();
+                progress--;
+                startStretch(GOALS[progress]*1000, true);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
+                flag = false;
+            }else{
+                MyUtil.print("정지후 시도하세요",getApplicationContext());
+            }
+
 
         }else if(v==nextBtn){
-            cdt.cancel();
-            progress++;
-            startStretch(GOALS[progress]*1000, true);
+            if(flag){
+                cdt.cancel();
+                progress++;
+                startStretch(GOALS[progress]*1000, true);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
+                flag = false;
+            }else{
+                MyUtil.print("정지후 시도하세요",getApplicationContext());
+            }
+
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        cdt.cancel();
+        super.onDestroy();
+    }
 }

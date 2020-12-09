@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:textSize="20sp"
             android:text="자세를 유지하세요" />
 
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="25dp"
             android:textSize="40sp"
             android:text="00" />
 
@@ -133,7 +133,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:progressDrawable="@drawable/timer_progressbar"
-            android:progressTint="@color/teal_200" />
+            android:progressTint="@color/purple_200" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
