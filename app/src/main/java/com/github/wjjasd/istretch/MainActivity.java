@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -18,6 +20,12 @@ import com.github.wjjasd.istretch.alarm.TimePickerDialog;
 import com.github.wjjasd.istretch.alarm.AlarmAdapter;
 import com.github.wjjasd.istretch.alarm.AlarmController;
 import com.github.wjjasd.istretch.alarm.AlarmVO;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     static private RecyclerView.Adapter mAdapter;
     boolean checkAlarmFirst;
+    private InterstitialAd mInterstitialAd;
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -48,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.removeAllViews();
             setAlarmList();
 
-            Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -56,7 +65,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//---------------------------------------ad test -------------------------------------------------
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
 
+//        mInterstitialAd = new InterstitialAd(this);
+//        mInterstitialAd.setAdUnitId(getString(R.string.admob_test_unit_id));
+//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+//        Button btn = findViewById(R.id.adBtn);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("AD", "isLoaded >>" + mInterstitialAd.isLoaded());
+//                if (mInterstitialAd.isLoaded()) {
+//                    mInterstitialAd.show();
+//                } else {
+//                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+//                }
+//            }
+//        });
+//---------------------------------------ad test -------------------------------------------------
         mContext = getApplicationContext();
         mRealm = Realm.getDefaultInstance();
         sharedPreferences = mContext.getSharedPreferences("stretchPref", Context.MODE_PRIVATE);
@@ -97,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
     }
 
     @Override
@@ -149,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         //rootView
                         //데이터 삭제, 알람채널 등록 취소하고 다시 타임피커 띄워줌
-                        Toast.makeText(mContext, "root view clicked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(mContext, "root view clicked", Toast.LENGTH_SHORT).show();
                     }
                 }, new View.OnClickListener() {
                     @Override

@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">iStretch</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <item name="TAG_ALARM_POSITION" type="id" />
-
     <item name="TAG_ALARM_ID" type="id" />
-
+    <string name="admob_app_id">ca-app-pub-1136089143214600~2376742555</string>
+    <string name="admob_ad_unit_id">ca-app-pub-1136089143214600/2846697602</string>
+    <string name="admob_test_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 </resources>

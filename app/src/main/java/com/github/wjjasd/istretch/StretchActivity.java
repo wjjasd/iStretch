@@ -2,6 +2,7 @@ package com.github.wjjasd.istretch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.AdaptiveIconDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,9 +16,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 public class StretchActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private InterstitialAd mInterstitialAd; //구글광고객체
     private ImageView gifImg; //스트레칭 자세 이미지
     private ProgressBar progressBar, timeCounter; //각 스트레칭 순번, 초 단위 카운터
     private TextView progressTxt, title, explanation;
@@ -77,7 +85,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
             ,"두손을 깍지껴 위로 들어 올리고 \n 왼쪽으로 기울여 줍니다" //m 13
             ,"두손을 깍지껴 위로 들어 올리고 \n 오른쪽으로 기울여 줍니다" //n 14
             ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 몸을 앞으로 지그시 눌러줍니다" //o 15
-            ,"의자에 앉아 오른쪽 다리을 반대편 \n 무릎에 올린 후 몸을 앞으로 지그시 눌러줍니다" //p 16
+            ,"의자에 앉아 오른쪽 다리을 \n 반대편 무릎에 올린 후 몸을 앞으로 \n 지그시 눌러줍니다" //p 16
             ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 상체를 왼쪽으로 틀어줍니다" //q 17
             ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 상체를 오른쪽으로 틀어줍니다" //r 18
             ,"바로선 자세에서 왼쪽다리를 들어올려 \n 왼쪽손으로 잡고 자세를 유지합니다" //s 19
@@ -89,6 +97,20 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stretch);
+        
+        //구글 광고
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.admob_test_unit_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the interstitial ad is closed.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                finish();
+            }
+        });
+        Log.d("AD", "isLoaded >>" + mInterstitialAd.isLoaded());
 
         setViews();
         startStretch(GOALS[progress]*1000, true);
@@ -96,7 +118,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void startStretch(long millisInFuture, boolean popup){
-        if(popup) popUpDialog();
+        //if(popup) popUpDialog();
         setStretchUI();
         cdt = new CountDownTimer(millisInFuture,1000) {
             @Override
@@ -116,8 +138,12 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                     cdt.cancel();
                     startStretch(GOALS[progress]*1000,true);
                 }else{
-                   MyUtil.print("스트레칭 완료!",getApplicationContext());
-                   finish();
+                    if (mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.show();
+                    } else {
+                        Log.d("TAG", "The interstitial wasn't loaded yet.");
+                        finish();
+                    }
                 }
             }
 
@@ -128,7 +154,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
             public void run() {
                     cdt.start();
                 }
-        }, 4500);
+        }, 1000); //4500
     }
 
 
