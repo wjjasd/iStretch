@@ -1,8 +1,60 @@
 <resources>
-    <string name="app_name">iStretch</string>
+    <string name="app_name" translatable="false">iStretch</string>
     <item name="TAG_ALARM_POSITION" type="id" />
     <item name="TAG_ALARM_ID" type="id" />
-    <string name="admob_app_id">ca-app-pub-1136089143214600~2376742555</string>
-    <string name="admob_ad_unit_id">ca-app-pub-1136089143214600/2846697602</string>
-    <string name="admob_test_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-1136089143214600~2376742555</string>
+    <string name="admob_ad_unit_id" translatable="false">ca-app-pub-1136089143214600/2846697602</string>
+    <string name="admob_test_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="cancel">cancel</string>
+    <string name="press_the_button">PRESS THE BUTTON TO START STRETCHING</string>
+    <string name="save">save</string>
+    <string name="hold_it">Hold it</string>
+    <string name="alarm">Alarm</string>
+    <string name="Stop_and_try">Stop and try</string>
+    <string name="a1">Neck Stretch (left)</string>
+    <string name="b2">Neck Stretch (right)</string>
+    <string name="c3">Neck Stretch (up)</string>
+    <string name="d4">Neck Stretch (down)</string>
+    <string name="e5">Arm Stretch (left)</string>
+    <string name="f6">Arm Stretch (right)</string>
+    <string name="g7">Shoulder Stretch (left)</string>
+    <string name="h8">Shoulder Stretch (right)</string>
+    <string name="i9">Back-head Arm Pull (left)</string>
+    <string name="j10">Back-head Arm Pull (right)</string>
+    <string name="k11">Chest Stretch</string>
+    <string name="l12">Upper Back Stretch</string>
+    <string name="m13">Side Stretch (left)</string>
+    <string name="n14">Side Stretch (right)</string>
+    <string name="o15">Pelvic Stretch (left)</string>
+    <string name="p16">Pelvic Stretch (right)</string>
+    <string name="q17">Waist Stretch (left)</string>
+    <string name="r18">Waist Stretch (right)</string>
+    <string name="s19">Standing Quad Stretch (left)</string>
+    <string name="t20">Standing Quad Stretch (right)</string>
+    <string name="u21">Standing Forward Bend</string>
+    <string name="v22">Calf Stretch (left)</string>
+    <string name="w23">Calf Stretch (right)</string>
+    <string name="a1e">keep your shoulder flat and bring your hand  on the top toward the opposite way and pull over to the left side</string>
+    <string name="b2e">keep your shoulder flat and bring your hand  on the top toward the opposite way and pull over to the right side</string>
+    <string name="c3e">look back up toward the ceiling and then hold it for 10 seconds</string>
+    <string name="d4e">bring your chin down to your chest and then hold it for 10 seconds</string>
+    <string name="e5e">place left arm straight out in front and parallel to the ground and then use your other hand to further rotate your hand upwards</string>
+    <string name="f6e">place right arm straight out in front and parallel to the ground and then use your other hand to further rotate your hand upwards</string>
+    <string name="g7e">bring your left arm across your chest holding it with your opposite breathe deeply and hold for 20 seconds</string>
+    <string name="h8e">bring your left arm across your chest holding it with your opposite breathe deeply and hold for 20 seconds</string>
+    <string name="i9e">raise your arm and place behind your head by bending the elbow  place your other hand on the the affected arm and pull towards the unaffected side</string>
+    <string name="j10e">raise your arm and place behind your head by bending the elbow  place your other hand on the the affected arm and pull towards the unaffected side</string>
+    <string name="k11e">take the arms behind you and lace your fingers together straighten the arms and gently lift your hands up a few inches until you feel a stretch in your chest</string>
+    <string name="l12e">standing tall with your feet shoulder-width apart and then interlock your fingers and push them away from you feel a stretch across your upper back/shoulders</string>
+    <string name="m13e">stand tall with your feet together and reach both arms overhead with palms together inhale and bend laterally to the left side</string>
+    <string name="n14e">stand tall with your feet together and reach both arms overhead with palms together inhale and bend laterally to the right side</string>
+    <string name="o15e">cross your left leg over your right quad and place your ankle just above your knee keep your back flat and your shoulders strong as you lean forward bringing your chest as close to your legs as possible</string>
+    <string name="p16e">cross your right leg over your left quad and place your ankle just above your knee keep your back flat and your shoulders strong as you lean forward bringing your chest as close to your legs as possible</string>
+    <string name="q17e">cross your left leg over your right quad and turn your body to the right side slowly</string>
+    <string name="r18e">cross your left leg over your right quad and turn your body to the right side slowly</string>
+    <string name="s19e">bend your knee back by grasping your ankle with one hand assist in bending your knee back as far as possible</string>
+    <string name="t20e">bend your knee back by grasping your ankle with one hand assist in bending your knee back as far as possible</string>
+    <string name="u21e">engage your quads and avoid locking your knees as you let your head hang down</string>
+    <string name="v22e">stand near a wall with one foot in front of the other, front knee slightly bent.Keep your back leg straight, your heel on the ground and lean toward the wall</string>
+    <string name="w23e">stand near a wall with one foot in front of the other, front knee slightly bent.Keep your back leg straight, your heel on the ground and lean toward the wall</string>
 </resources>

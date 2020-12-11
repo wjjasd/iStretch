@@ -37,67 +37,71 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
     private TextView countTxt;
     private int second; //일시정시 버튼 초 저장을 위한 변수
 
-    private final int IMGS[] = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e
-                                ,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j
-                                ,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p
-                                ,R.drawable.q,R.drawable.r,R.drawable.s,R.drawable.t,R.drawable.u,R.drawable.v,R.drawable.w};
+    private final int[] IMGS = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f
+                                ,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l
+                                ,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r
+                                ,R.drawable.s,R.drawable.t,R.drawable.u,R.drawable.v,R.drawable.w};
 
-    private final int GOALS[] = {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3};
+    private final int[] GOALS = {5,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3};
 
-    private final String NAMES[] = {
-             "좌우앞뒤 목 늘이기(좌)" //a 1
-            ,"좌우앞뒤 목 늘이기(우)" //b 2
-            ,"좌우앞뒤 목 늘이기(뒤)" //c 3
-            ,"좌우앞뒤 목 늘이기(앞)" //d 4
-            ,"손뻗어 당기기 (좌)" //e 5
-            ,"손뻗어 당기기 (우)" //f 6
-            ,"팔 옆으로 당기기 (좌)" //g 7
-            ,"팔 옆으로 당기기 (우)" //h 8
-            ,"머리뒤로 팔 당기기 (좌)" //i 9
-            ,"머리뒤로 팔 당기기 (우)" //j 10
-            ,"두 팔 뒤로 당기기 " //k 11
-            ,"두 팔 피며 상체 굽히기" //l 12
-            ,"팔올려 옆으로 몸통 굽히기 (좌)" //m 13
-            ,"팔올려 옆으로 몸통 굽히기 (우)" //n 14
-            ,"한쪽 다리 접고 몸 숙이기 (좌)" //o 15
-            ,"한쪽 다리 접고 몸 숙이기 (우)" //p 16
-            ,"한쪽 다리 접고 상체 회전 (좌)" //q 17
-            ,"한쪽 다리 접고 상체 회전 (우)" //r 18
-            ,"한쪽 다리 뒤로 굽혀 당기기 (좌)" //s 19
-            ,"한쪽 다리 뒤로 굽혀 당기기 (우)" //t 20
-            ,"서서 상체 접기" //u 21
-            ,"런지 자세로 종아리 늘이기 (좌)" //v 22
-            ,"런지 자세로 종아리 늘이기 (우)"}; //w 23
-
-    private final String EXPLANATION[] = {
-             "왼손으로 머리를 잡고 천천히 당겨 \n 목 오른쪽 근육을 스트레칭 해줍니다" //a 1
-            ,"오른손으로 머리를 잡고 천천히 당겨 \n 목 왼쪽 근육을 스트레칭 해줍니다" //b 2
-            ,"어깨를 고정하고 머리를 \n 위로 들어 줍니다" //c 3
-            ,"어깨를 고정하고 머리를 \n 앞으로 숙여 줍니다" //d 4
-            ,"왼손을 앞으로 쭉 뻗은 상태에서 \n 오른손으로 왼손끝을 몸쪽으로 당겨줍니다" //e 5
-            ,"오른손은 앞으로 쭉 뻗은 상태에서 \n 왼손으로 오른손 끝을 몸쪽으로 당겨줍니다" //f 6
-            ,"왼쪽 팔을 오른쪽으로 당기고 왼쪽 어깨를 \n 스트레칭 해주며 자세를 유지합니다" //g 7
-            ,"오른쪽 팔을 왼쪽으로 당기고 오른쪽 어깨를 \n 스트레칭 해주며 자세를 유지합니다 " //h 8
-            ,"왼쪽 팔을 머리뒤쪽에서 반대편으로 넘기며 \n 다른 한 손으로 천천히 당겨줍니다" //i 9
-            ,"오른쪽 팔을 머리뒤쪽에서 반대편으로 넘기며 \n 다른 한 손으로 천천히 당겨줍니다" //j 10
-            ,"두 팔을 뒤로 모아 마주잡고 \n 어깨를 펴며 쭉 뻗어 줍니다" //k 11
-            ,"양발을 나란히 놓고 선후 두손을 모아줍니다 \n 허리를 구부리며 등과 팔을 쭉 펴세요" //l 12
-            ,"두손을 깍지껴 위로 들어 올리고 \n 왼쪽으로 기울여 줍니다" //m 13
-            ,"두손을 깍지껴 위로 들어 올리고 \n 오른쪽으로 기울여 줍니다" //n 14
-            ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 몸을 앞으로 지그시 눌러줍니다" //o 15
-            ,"의자에 앉아 오른쪽 다리을 \n 반대편 무릎에 올린 후 몸을 앞으로 \n 지그시 눌러줍니다" //p 16
-            ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 상체를 왼쪽으로 틀어줍니다" //q 17
-            ,"의자에 앉아 왼쪽 다리을 반대편 \n 무릎에 올린 후 상체를 오른쪽으로 틀어줍니다" //r 18
-            ,"바로선 자세에서 왼쪽다리를 들어올려 \n 왼쪽손으로 잡고 자세를 유지합니다" //s 19
-            ,"바로선 자세에서 오른쪽다리 들어올려 \n 오른손으로 잡고 자세를 유지합니다" //t 20
-            ,"양발을 어깨 넓이로 벌려 선 상태에서 \n 몸을 앞으로 서서히 숙여 등과 허벅지 \n 근육을 늘려줍니다" //u 21
-            ,"오른쪽 발을 앞으로 내딛고 뒤쪽 종아리를 늘려줍니다" //v 22
-            ,"왼쪽 발을 앞으로 내딛고 뒤쪽 종아리를 늘려줍니다"}; //w 23
+    private String[] NAMES;
+    private String[] EXPLANATION;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stretch);
-        
+
+
+        NAMES = new String[]{
+                  getString(R.string.a1) //a 1
+                , getString(R.string.b2) //b 2
+                , getString(R.string.c3) //c 3
+                , getString(R.string.d4) //d 4
+                , getString(R.string.e5) //e 5
+                , getString(R.string.f6) //f 6
+                , getString(R.string.g7) //g 7
+                , getString(R.string.h8) //h 8
+                , getString(R.string.i9) //i 9
+                , getString(R.string.j10) //j 10
+                , getString(R.string.k11) //k 11
+                , getString(R.string.l12) //l 12
+                , getString(R.string.m13) //m 13
+                , getString(R.string.n14) //n 14
+                , getString(R.string.o15) //o 15
+                , getString(R.string.p16) //p 16
+                , getString(R.string.q17) //q 17
+                , getString(R.string.r18) //r 18
+                , getString(R.string.s19) //s 19
+                , getString(R.string.t20) //t 20
+                , getString(R.string.u21) //u 21
+                , getString(R.string.v22) //v 22
+                , getString(R.string.w23)}; //w 23
+
+        EXPLANATION = new String[]{
+                  getString(R.string.a1e) //a 1
+                , getString(R.string.b2e) //b 2
+                , getString(R.string.c3e) //c 3
+                , getString(R.string.d4e) //d 4
+                , getString(R.string.e5e) //e 5
+                , getString(R.string.f6e) //f 6
+                , getString(R.string.g7e) //g 7
+                , getString(R.string.h8e) //h 8
+                , getString(R.string.i9e) //i 9
+                , getString(R.string.j10e) //j 10
+                , getString(R.string.k11e) //k 11
+                , getString(R.string.l12e) //l 12
+                , getString(R.string.m13e) //m 13
+                , getString(R.string.n14e) //n 14
+                , getString(R.string.o15e) //o 15
+                , getString(R.string.p16e) //p 16
+                , getString(R.string.q17e) //q 17
+                , getString(R.string.r18e) //r 18
+                , getString(R.string.s19e) //s 19
+                , getString(R.string.t20e) //t 20
+                , getString(R.string.u21e) //u 21
+                , getString(R.string.v22e) //v 22
+                , getString(R.string.w23e)}; //w 23
+
         //구글 광고
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.admob_test_unit_id));
@@ -118,7 +122,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void startStretch(long millisInFuture, boolean popup){
-        //if(popup) popUpDialog();
+        if(popup) popUpDialog();
         setStretchUI();
         cdt = new CountDownTimer(millisInFuture,1000) {
             @Override
@@ -154,7 +158,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
             public void run() {
                     cdt.start();
                 }
-        }, 1000); //4500
+        }, 4500); //4500
     }
 
 
@@ -210,7 +214,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                 cdt.cancel();
                 second = Integer.parseInt(countTxt.getText().toString());
             }else{ //play버튼 클릭
-                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_stop);
                 flag = false;
                 cdt.start();
             }
@@ -219,10 +223,10 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                 cdt.cancel();
                 progress--;
                 startStretch(GOALS[progress]*1000, true);
-                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_stop);
                 flag = false;
             }else{
-                MyUtil.print("정지후 시도하세요",getApplicationContext());
+                MyUtil.print(getString(R.string.Stop_and_try),getApplicationContext());
             }
 
 
@@ -231,10 +235,10 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                 cdt.cancel();
                 progress++;
                 startStretch(GOALS[progress]*1000, true);
-                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_stop);
                 flag = false;
             }else{
-                MyUtil.print("정지후 시도하세요",getApplicationContext());
+                MyUtil.print(getString(R.string.Stop_and_try),getApplicationContext());
             }
 
         }

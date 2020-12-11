@@ -34,7 +34,7 @@
             android:id="@+id/stretchTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="한쪽 다리 접은 상태에서 \n 좌우로 상체 회전"
             android:textColor="@color/black"
@@ -49,7 +49,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:gravity="center"
-            android:text="앉은 상태에서 한쪽 다리를 \n 무릎에 올린 후 천천히 몸을 틀어줍니다."
+            android:text="raise your arm and place your hand
+ behind your head by bending the elbow
+ place your other hand on the the affected
+ arm and pull towards the unaffected side"
             android:textSize="20sp" />
 
         <ImageView
@@ -64,16 +67,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:textSize="20sp"
-            android:text="자세를 유지하세요" />
+            android:text="@string/hold_it" />
 
         <TextView
             android:id="@+id/countTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:textSize="40sp"
             android:text="00" />
 
@@ -105,7 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_pause"
+            android:src="@drawable/ic_baseline_stop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
