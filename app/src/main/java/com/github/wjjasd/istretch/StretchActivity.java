@@ -42,7 +42,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                                 ,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r
                                 ,R.drawable.s,R.drawable.t,R.drawable.u,R.drawable.v,R.drawable.w};
 
-    private final int[] GOALS = {5,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3};
+    private final int[] GOALS = {10,10,10,10,10,10,10,10,10,10,10,10,10,10,15,15,10,10,10,10,10,15,15};
 
     private String[] NAMES;
     private String[] EXPLANATION;
@@ -158,7 +158,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
             public void run() {
                     cdt.start();
                 }
-        }, 4500); //4500
+        }, 4300);
     }
 
 
@@ -247,6 +247,9 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onDestroy() {
         cdt.cancel();
+        if (mInterstitialAd.isLoaded() && progress > NAMES.length / 2) {
+            mInterstitialAd.show();
+        }
         super.onDestroy();
     }
 }

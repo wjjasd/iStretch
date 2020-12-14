@@ -79,7 +79,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                     if (day_of_week != null) {
                         for (int i = 0; i < day_of_week.size(); i++) {
                             int comp = day_of_week.get(i);
-                            if (todayOfWeek.equals(comp)) {
+                            if (todayOfWeek == comp) {
                                 matchOrNot = true;
                                 break;
                             }

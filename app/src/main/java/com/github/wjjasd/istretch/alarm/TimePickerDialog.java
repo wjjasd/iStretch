@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -150,6 +151,7 @@ public class TimePickerDialog{
                 }
                 //전역변수 리스트에 저장
                 mDayOfWeek = converter.convert_to_int();
+                Log.d("요일선택",mDayOfWeek.toString());
             }
         });
     }
