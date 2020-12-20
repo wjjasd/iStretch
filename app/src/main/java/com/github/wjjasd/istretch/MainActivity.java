@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
             sharedPreferences.edit().putBoolean("switch" + afterAlarmId, false).apply();
             recyclerView.removeAllViews();
             setAlarmList();
-
-            //Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -100,23 +98,21 @@ public class MainActivity extends AppCompatActivity {
 
         setAlarmList();
 
-        addBtn = findViewById(R.id.addAlarmBtn);
+        addBtn = findViewById(R.id.addAlarmBtn); //알람추가버튼
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timePickerDialog = new TimePickerDialog(MainActivity.this);
                 timePickerDialog.show();
-
+                //결과확인
                 timePickerDialog.dlgResult(new TimePickerDialog.onDlgResult() {
                     @Override
                     public void dlgFinishSave(boolean result, int id) {
-
                         checkAlarmFirst = sharedPreferences.getBoolean("checkAlarmFirst", true);
                         recyclerView.removeAllViews();
-                        setAlarmList();
+                        setAlarmList(); //Recycler view 다시셋팅
                     }
                 });
-
             }
         });
 

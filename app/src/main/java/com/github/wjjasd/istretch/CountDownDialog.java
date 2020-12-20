@@ -54,23 +54,15 @@ public class CountDownDialog {
     public class CountDownTimerClass extends CountDownTimer {
 
         public CountDownTimerClass(long millisInFuture, long countDownInterval) {
-
             super(millisInFuture, countDownInterval);
-
         }
-
         @Override
         public void onTick(long millisUntilFinished) {
-
             int progress = (int) (millisUntilFinished/1000);
-
             textView.setText(Integer.toString(progress));
-
         }
-
         @Override
         public void onFinish() {
-
             textView.setText("START");
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {

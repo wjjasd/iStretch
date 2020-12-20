@@ -54,8 +54,8 @@ public class TimePickerDialog{
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dlg.setContentView(R.layout.time_picker_dialog);
         sharedPreferences = mContext.getSharedPreferences("stretchPref", Context.MODE_PRIVATE);
-        setView();
-        setOnClick();
+        setView(); //요일선택에 대한 동작
+        setOnClick(); //저장, 취소버튼
     }
 
     public void show(){
@@ -162,9 +162,7 @@ public class TimePickerDialog{
     }
 
     public interface onDlgResult {
-
         void dlgFinishSave(boolean result, int id);
-
     }
 
 

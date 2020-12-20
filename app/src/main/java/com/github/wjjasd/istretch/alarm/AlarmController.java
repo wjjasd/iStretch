@@ -25,7 +25,6 @@ public class AlarmController implements AlarmInterface {
     public AlarmController(Context context) {
         mRealm = Realm.getDefaultInstance();
         this.context = context;
-
     }
 
     @Override

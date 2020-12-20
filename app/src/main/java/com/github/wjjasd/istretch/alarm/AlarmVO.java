@@ -7,11 +7,11 @@ import io.realm.annotations.PrimaryKey;
 public class AlarmVO extends RealmObject {
 
     @PrimaryKey
-    private int id;
-    private int hour;
-    private int minute;
-    private boolean repeat;
-    private RealmList<Integer> day_of_week;
+    private int id; //알람 식별자
+    private int hour; //시
+    private int minute; //분
+    private boolean repeat; //반복여부
+    private RealmList<Integer> day_of_week; //반복할 요일
 
     public int getId() {
         return id;
