@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //---------------------------------------ad test -------------------------------------------------
+        //이 메소드는 앱 실행시 한번만 실행하면 됨
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {

@@ -124,6 +124,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
     private void startStretch(long millisInFuture, boolean popup){
         if(popup) popUpDialog();
         setStretchUI();
+        Log.d("millisInFuture >>", millisInFuture+"");
         cdt = new CountDownTimer(millisInFuture,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -152,13 +153,18 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
             }
 
         };
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        if(popup){
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
                     cdt.start();
                 }
-        }, 4300);
+            }, 4300);
+        }else{
+            cdt.start();
+        }
+
     }
 
 
@@ -214,16 +220,17 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                 cdt.cancel();
                 second = Integer.parseInt(countTxt.getText().toString());
             }else{ //play버튼 클릭
-                pauseBtn.setImageResource(R.drawable.ic_baseline_stop);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
                 flag = false;
-                cdt.start();
+                //cdt.start();
+                startStretch(second*1000,false);
             }
         }else if(v==preBtn){
             if(flag){
                 cdt.cancel();
                 progress--;
                 startStretch(GOALS[progress]*1000, true);
-                pauseBtn.setImageResource(R.drawable.ic_baseline_stop);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
                 flag = false;
             }else{
                 MyUtil.print(getString(R.string.Stop_and_try),getApplicationContext());
@@ -235,7 +242,7 @@ public class StretchActivity extends AppCompatActivity implements View.OnClickLi
                 cdt.cancel();
                 progress++;
                 startStretch(GOALS[progress]*1000, true);
-                pauseBtn.setImageResource(R.drawable.ic_baseline_stop);
+                pauseBtn.setImageResource(R.drawable.ic_baseline_pause);
                 flag = false;
             }else{
                 MyUtil.print(getString(R.string.Stop_and_try),getApplicationContext());
